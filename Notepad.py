@@ -45,15 +45,14 @@ class Notepad:
 	def __init__(self,**kwargs):
 		# largura e altura padrão da janela
 		try:
-				self.__root.wm_iconbitmap("Notepad.ico")
+			self.__root.wm_iconbitmap("Notepad.ico")
 		except:
-				pass
+			pass
 		# largura e altura padrão da janela
 		try:
 			self.__thisWidth = kwargs['width']
 		except KeyError:
 			pass
-
 		try:
 			self.__thisHeight = kwargs['height']
 		except KeyError:
@@ -71,8 +70,8 @@ class Notepad:
 		# Para superior e inferior
 
 		self.__root.geometry('%dx%d+%d+%d' % (self.__thisWidth,
-		 									self.__thisHeight,
-											left, top))
+						      self.__thisHeight,
+						      left, top))
 		# Para tornar a área de texto redimensionável automaticamente
 		self.__root.grid_rowconfigure(0, weight=3)
 		self.__root.grid_columnconfigure(0, weight=3)
@@ -81,42 +80,42 @@ class Notepad:
 		self.__thisTextArea.grid(sticky = N + E + S + W)
 		# Para abrir um novo arquivo
 		self.__thisFileMenu.add_command(label="Novo",
-										command=self.__newFile)
+						command=self.__newFile)
 		# Para abrir um arquivo já existente
 		self.__thisFileMenu.add_command(label="Abrir",
-										command=self.__openFile)
+						command=self.__openFile)
 		# Para salvar o arquivo atual
 		self.__thisFileMenu.add_command(label="Salvar",
-										command=self.__saveFile)
+						command=self.__saveFile)
 		# Para salvar o arquivo atual
 		self.__thisFileMenu.add_separator()
 		self.__thisFileMenu.add_command(label="Sair",
-										command=self.__quitApplication)
+						command=self.__quitApplication)
 		self.__thisMenuBar.add_cascade(label="Arquivo",
-									menu=self.__thisFileMenu)
+					       menu=self.__thisFileMenu)
 		# Para dar um recurso de corte
 		self.__thisEditMenu.add_command(label="Recortar",
-										command=self.__cut)
+						command=self.__cut)
 		# para dar um recurso de cópia
 		self.__thisEditMenu.add_command(label="Copiar",
-										command=self.__copy)
+						command=self.__copy)
 		# para dar um recurso de colar
 		self.__thisEditMenu.add_command(label="Colar",
-										command=self.__paste)
-                # para dar um recurso de desfazer
+						command=self.__paste)
+        # para dar um recurso de desfazer
 		self.__thisEditMenu.add_command(label="Desfazer",
-										command=self.__undo)
-                #para dar um recurso de refazer
+						command=self.__undo)
+        #para dar um recurso de refazer
 		self.__thisEditMenu.add_command(label="Refazer",
-										command=self.__redo)
-                # Para dar um recurso de edição
+						command=self.__redo)
+        # Para dar um recurso de edição
 		self.__thisMenuBar.add_cascade(label="Editar",
-									menu=self.__thisEditMenu)
+					       menu=self.__thisEditMenu)
 		# Para criar um recurso de descrição do bloco de notas
 		self.__thisHelpMenu.add_command(label="Ajuda",
-										command=self.__showAbout)
+						command=self.__showAbout)
 		self.__thisMenuBar.add_cascade(label="Ajuda",
-									menu=self.__thisHelpMenu)
+					       menu=self.__thisHelpMenu)
 		self.__root.config(menu=self.__thisMenuBar)
 		self.__thisScrollBar.pack(side=RIGHT,fill=Y)
 		# A barra de rolagem se ajustará automaticamente de acordo com o conteúdo
@@ -129,8 +128,8 @@ class Notepad:
 		showinfo("Bloco de Notas",view =webbrowser.open("https://www.google.com/search?q=bloco+de+notas"))
 	def __openFile(self):
 		self.__file = askopenfilename(defaultextension=".txt",
-									filetypes=[("Todos Arquivos","*.*"),
-										("Documentos de texto","*.txt")])
+					      filetypes=[("Todos Arquivos","*.*"),
+							 ("Documentos de texto","*.txt")])
 		if self.__file == "":
 			# nenhum arquivo para abrir
 			self.__file = None
@@ -153,9 +152,9 @@ class Notepad:
 		if self.__file == None:
 			# Salve como novo arquivo
 			self.__file = asksaveasfilename(initialfile='indefinido.txt',
-											defaultextension=".txt",
-											filetypes=[("Todos os arquivos","*.*"),
-												("Documentos de texto","*.txt")])
+							defaultextension=".txt",
+							filetypes=[("Todos os arquivos","*.*"),
+								   ("Documentos de texto","*.txt")])
 
 			if self.__file == "":
 				self.__file = None
