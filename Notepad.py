@@ -103,13 +103,13 @@ class Notepad:
 		# para dar um recurso de colar
 		self.__thisEditMenu.add_command(label="Colar",
 										command=self.__paste)
-        # para dar um recurso de desfazer
+                # para dar um recurso de desfazer
 		self.__thisEditMenu.add_command(label="Desfazer",
 										command=self.__undo)
-        #para dar um recurso de refazer
+                #para dar um recurso de refazer
 		self.__thisEditMenu.add_command(label="Refazer",
 										command=self.__redo)
-        # Para dar um recurso de edição
+                # Para dar um recurso de edição
 		self.__thisMenuBar.add_cascade(label="Editar",
 									menu=self.__thisEditMenu)
 		# Para criar um recurso de descrição do bloco de notas
